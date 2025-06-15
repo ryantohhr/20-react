@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { setgid } from 'process'
 import { useState, useEffect } from 'react'
+import { BrickWall, ScrollText, Scissors, Trophy, Trash2, Equal } from 'lucide-react'
 
 export const Route = createFileRoute('/rock-paper-scissors')({
   component: RouteComponent,
@@ -53,11 +54,11 @@ function RouteComponent() {
 
   function displayResult() {
     if (gameState === 'tie') {
-      return <div>It's a tie!</div>
+      return <div className='flex flex-col items-center justify-center gap-2 text-2xl font-bold'>It's a tie! <Equal className='w-10 h-10' /></div>
     } else if (gameState === 'win') {
-      return <div>You won! You chose {userChoice}, CPU chose {computerChoice}</div>
+      return <div className='flex flex-col items-center justify-center gap-2 text-center text-2xl font-bold'>You won! <br /> You chose {userChoice}, CPU chose {computerChoice} <Trophy className='w-10 h-10' /></div>
     } else if (gameState === 'lose') {
-      return <div>You lose! You chose {userChoice}, CPU chose {computerChoice}</div>
+      return <div className='flex flex-col items-center justify-center gap-2 text-center text-2xl font-bold'>You lose! <br /> You chose {userChoice}, CPU chose {computerChoice} <Trash2 className='w-10 h-10' /></div>
     }
   }
 
@@ -73,9 +74,9 @@ function RouteComponent() {
           <>
             <p className='text-2xl font-bold'>Pick your weapon</p>
               <div className='flex items-center justify-center gap-3'>
-                  <button onClick={chooseRock} className='w-44 h-80 border-2 border-white rounded-md bg-[#120d33]'>Rock</button>
-                  <button onClick={choosePaper} className='w-44 h-80 border-2 border-white rounded-md bg-[#120d33]'>Paper</button>
-                  <button onClick={chooseScissors} className='w-44 h-80 border-2 border-white rounded-md bg-[#120d33]'>Scissors</button>
+                  <button onClick={chooseRock} className='w-44 h-80 flex flex-col items-center justify-center gap-2 border-2 border-white rounded-md bg-[#120d33]'><BrickWall className='w-10 h-10' />ROCK</button>
+                  <button onClick={choosePaper} className='w-44 h-80 flex flex-col items-center justify-center gap-2 border-2 border-white rounded-md bg-[#120d33]'><ScrollText className='w-10 h-10' />PAPER</button>
+                  <button onClick={chooseScissors} className='w-44 h-80 flex flex-col items-center justify-center gap-2 border-2 border-white rounded-md bg-[#120d33]'><Scissors className='w-10 h-10'/>SCISSORS</button>
               </div>
             
           </>
