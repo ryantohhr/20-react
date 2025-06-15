@@ -55,10 +55,16 @@ function RouteComponent() {
     if (gameState === 'tie') {
       return <div>It's a tie!</div>
     } else if (gameState === 'win') {
-      return <div>You won!</div>
+      return <div>You won! You chose {userChoice}, CPU chose {computerChoice}</div>
     } else if (gameState === 'lose') {
-      return <div>You lose!</div>
+      return <div>You lose! You chose {userChoice}, CPU chose {computerChoice}</div>
     }
+  }
+
+  function resetGame() {
+    setUserChoice(null)
+    setComputerChoice(null)
+    setGameState('playing')
   }
 
   return (
@@ -76,7 +82,7 @@ function RouteComponent() {
         ) : (
           <>
             {displayResult()}
-            You chose {userChoice}, CPU chose {computerChoice}
+            <button onClick={resetGame} className='text-black bg-white rounded-md px-4 py-2'>Play Again</button>
           </>
         )  
       }
