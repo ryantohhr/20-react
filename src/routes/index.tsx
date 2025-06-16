@@ -13,6 +13,10 @@ function RouteComponent() {
         {
           title: 'Stopwatch',
           path: '/stopwatch'
+        },
+        {
+          title: 'Dice',
+          path: '/dice'
         }
     ]
   return (
