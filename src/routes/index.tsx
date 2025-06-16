@@ -9,6 +9,10 @@ function RouteComponent() {
         {
             title: 'Rock Paper Scissors',
             path: '/rock-paper-scissors',
+        },
+        {
+          title: 'Stopwatch',
+          path: '/stopwatch'
         }
     ]
   return (

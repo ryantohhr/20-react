@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { BrickWall, ScrollText, Scissors, Trophy, Trash2, Equal } from 'lucide-react'
 
 export const Route = createFileRoute('/rock-paper-scissors')({
