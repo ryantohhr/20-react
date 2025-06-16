@@ -19,7 +19,7 @@ This is a log of my journey in becoming more proficient at using the React libra
 
 ## Challenges
 
-### Rock Paper Scissors
+### Rock Paper Scissors 🪨 📄 ✂️ 
 
 In this project, I focused on creating a simple rock paper scissors game, with 2 main screens:
 
@@ -30,11 +30,25 @@ This was my first project using Tailwind CSS and Typescript, and served as an in
 
 Takeaways:
 - Typescript
-  - State type assignment
+  - State type declaration
   - Creating types
-  - Usage of 'as const' to specify types
+  - Usage of `as const` to specify types
 - Tailwind
   - Basic syntax
+
+### Stopwatch ⏱️
+
+In this project, I created a browser stopwatch which allows the user to start, pause and reset the stopwatch.
+
+Takeaways:
+- React
+  - Usage of `useRef` for tracking variables without triggering a rerender
+  - Using `(prev) => prev + 1` to increment states
+  - Conditional rendering with `&&`
+- Typescript
+  - Using type inference (Avoid redundant type declarations)
+- Tailwind
+  - Understood utility classes for styles like width and height
 
 ## Credits
 Thanks to WebDevCody for designing and sharing these projects.
