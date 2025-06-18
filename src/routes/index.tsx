@@ -20,14 +20,16 @@ function RouteComponent() {
         }
     ]
   return (
-    challenges.map((challenge) => {
+    <div className='flex items-center justify-center h-screen gap-5'>
+    {challenges.map((challenge) => {
         return (
-            <div>
-                <Link to={challenge.path}>
-                    {challenge.title}
-                </Link>
-            </div>
+          <div className='px-4 py-2 bg-white rounded-md'>
+            <Link className='px-4 py-2 text-black' to={challenge.path}>
+                {challenge.title}
+            </Link>
+          </div>
         )
-    })
+    })}
+    </div>
   )
 }
