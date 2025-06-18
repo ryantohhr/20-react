@@ -6,11 +6,15 @@ export const Route = createFileRoute('/dice')({
 })
 
 function RouteComponent() {
-  const [roll, setRoll] = useState(0)
+  const [roll, setRoll] = useState(1)
+
+  function rollDice() {
+    setRoll(Math.ceil(Math.random() * 6))
+  }
 
   return (
     <div className='flex flex-col items-center justify-center h-screen gap-8'>
-      <button className='px-4 py-2 bg-white text-black rounded-md'>
+      <button onClick={rollDice} className='px-4 py-2 bg-white text-black rounded-md'>
         Roll
       </button>
       <div className='flex items-center justify-center w-40 h-40 bg-white rounded-md p-6'>
