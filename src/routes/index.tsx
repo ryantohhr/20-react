@@ -17,6 +17,10 @@ function RouteComponent() {
         {
           title: 'Dice',
           path: '/dice'
+        },
+        {
+          title: 'Traffic Light',
+          path: '/traffic-light'
         }
     ]
   return (
