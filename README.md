@@ -50,5 +50,13 @@ Takeaways:
 - Tailwind
   - Understood utility classes for styles like width and height
 
+### Dice 
+
+Created a dice site that allows the user to roll a die.
+
+Takeaways:
+
+Relatively simple project, familiarised with syntax of involved technologies
+
 ## Credits
 Thanks to WebDevCody for designing and sharing these projects.
