@@ -6,33 +6,33 @@ export const Route = createFileRoute('/traffic-light')({
 })
 
 type Colour = 'red' | 'orange' | 'green'
+const RED = 'red'
+const ORANGE = 'orange'
+const GREEN = 'green'
+const RED_DELAY = 3000
+const ORANGE_DELAY = 1000
+const GREEN_DELAY = 3000
 
 function RouteComponent() {
-  const [activeColour, setActiveColour] = useState<Colour>('red')
+  const [activeColour, setActiveColour] = useState<Colour>(RED)
 
   useEffect(() => {
-    function cycle() {
-      setActiveColour('red')
-      
+    if (activeColour === RED) {
       setTimeout(() => {
-        setActiveColour('green')
-      }, 3000)
-      
+        setActiveColour(GREEN)
+      }, RED_DELAY)
+    } else if (activeColour === GREEN) {
       setTimeout(() => {
-        setActiveColour('orange')
-      }, 6000)
-      
+        setActiveColour(ORANGE)
+      }, GREEN_DELAY)
+    } else if (activeColour === ORANGE) {
       setTimeout(() => {
-        setActiveColour('red')
-      }, 7000)
+        setActiveColour(RED)
+      }, ORANGE_DELAY)
     }
 
-    cycle()
-    
-    const interval = setInterval(cycle, 7000)
-    
-    return () => clearInterval(interval)
-  }, [])
+    console.log(activeColour)
+  }, [activeColour])
 
   return (
     <div className='flex items-center justify-center h-screen'>
@@ -44,29 +44,15 @@ function RouteComponent() {
 }
 
 function TrafficLight({ active }: { active: Colour }) {
+  function isActive(colour: Colour) {
+    return colour === active
+  }
+
   return (
     <>
-      {active === 'green' && (
-        <>
-          <div className={`bg-[#4f3a3c] w-24 h-24 rounded-full`}></div>
-          <div className={`bg-[#4f4b3a] w-24 h-24 rounded-full`}></div>
-          <div className={`bg-[#06c73d] w-24 h-24 rounded-full`}></div>
-        </>
-      )}
-      {active === 'orange' && (
-        <>
-          <div className={`bg-[#4f3a3c] w-24 h-24 rounded-full`}></div>
-          <div className={`bg-[#c78006] w-24 h-24 rounded-full`}></div>
-          <div className={`bg-[#3a4f3b] w-24 h-24 rounded-full`}></div>
-        </>
-      )}
-      {active === 'red' && (
-        <>
-          <div className={`bg-[#c71306] w-24 h-24 rounded-full`}></div>
-          <div className={`bg-[#4f4b3a] w-24 h-24 rounded-full`}></div>
-          <div className={`bg-[#3a4f3b] w-24 h-24 rounded-full`}></div>
-        </>
-      )}
+      <div className={`bg-red-600 size-24 rounded-full ${isActive(RED) ? 'opacity-100' : 'opacity-30'}`}></div>
+      <div className={`bg-orange-600 size-24 rounded-full ${isActive(ORANGE) ? 'opacity-100' : 'opacity-30'}`}></div>
+      <div className={`bg-green-600 size-24 rounded-full ${isActive(GREEN) ? 'opacity-100' : 'opacity-30'}`}></div>
     </>
   )
 }
