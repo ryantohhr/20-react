@@ -25,6 +25,10 @@ function RouteComponent() {
         {
           title: 'Quote Generator',
           path: '/quote-generator'
+        },
+        {
+          title: 'Gradient',
+          path: '/gradient'
         }
     ]
   return (

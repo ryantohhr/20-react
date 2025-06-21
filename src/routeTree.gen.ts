@@ -13,6 +13,7 @@ import { Route as TrafficLightRouteImport } from './routes/traffic-light'
 import { Route as StopwatchRouteImport } from './routes/stopwatch'
 import { Route as RockPaperScissorsRouteImport } from './routes/rock-paper-scissors'
 import { Route as QuoteGeneratorRouteImport } from './routes/quote-generator'
+import { Route as GradientRouteImport } from './routes/gradient'
 import { Route as DiceRouteImport } from './routes/dice'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const QuoteGeneratorRoute = QuoteGeneratorRouteImport.update({
   path: '/quote-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GradientRoute = GradientRouteImport.update({
+  id: '/gradient',
+  path: '/gradient',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DiceRoute = DiceRouteImport.update({
   id: '/dice',
   path: '/dice',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dice': typeof DiceRoute
+  '/gradient': typeof GradientRoute
   '/quote-generator': typeof QuoteGeneratorRoute
   '/rock-paper-scissors': typeof RockPaperScissorsRoute
   '/stopwatch': typeof StopwatchRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dice': typeof DiceRoute
+  '/gradient': typeof GradientRoute
   '/quote-generator': typeof QuoteGeneratorRoute
   '/rock-paper-scissors': typeof RockPaperScissorsRoute
   '/stopwatch': typeof StopwatchRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dice': typeof DiceRoute
+  '/gradient': typeof GradientRoute
   '/quote-generator': typeof QuoteGeneratorRoute
   '/rock-paper-scissors': typeof RockPaperScissorsRoute
   '/stopwatch': typeof StopwatchRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dice'
+    | '/gradient'
     | '/quote-generator'
     | '/rock-paper-scissors'
     | '/stopwatch'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/dice'
+    | '/gradient'
     | '/quote-generator'
     | '/rock-paper-scissors'
     | '/stopwatch'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dice'
+    | '/gradient'
     | '/quote-generator'
     | '/rock-paper-scissors'
     | '/stopwatch'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DiceRoute: typeof DiceRoute
+  GradientRoute: typeof GradientRoute
   QuoteGeneratorRoute: typeof QuoteGeneratorRoute
   RockPaperScissorsRoute: typeof RockPaperScissorsRoute
   StopwatchRoute: typeof StopwatchRoute
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuoteGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gradient': {
+      id: '/gradient'
+      path: '/gradient'
+      fullPath: '/gradient'
+      preLoaderRoute: typeof GradientRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dice': {
       id: '/dice'
       path: '/dice'
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DiceRoute: DiceRoute,
+  GradientRoute: GradientRoute,
   QuoteGeneratorRoute: QuoteGeneratorRoute,
   RockPaperScissorsRoute: RockPaperScissorsRoute,
   StopwatchRoute: StopwatchRoute,
