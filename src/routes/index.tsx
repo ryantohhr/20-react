@@ -21,6 +21,10 @@ function RouteComponent() {
         {
           title: 'Traffic Light',
           path: '/traffic-light'
+        },
+        {
+          title: 'Quote Generator',
+          path: '/quote-generator'
         }
     ]
   return (
