@@ -36,7 +36,7 @@ In this project, I focused on creating a simple rock paper scissors game, with 2
 This was my first project using Tailwind CSS and Typescript, and served as an introduction to the syntax of these tools.
 
 Takeaways:
-- Typescript
+- TypeScript
   - State type declaration
   - Creating types
   - Usage of `as const` to specify types
@@ -52,7 +52,7 @@ Takeaways:
   - Usage of `useRef` for tracking variables without triggering a rerender
   - Using `(prev) => prev + 1` to increment states
   - Conditional rendering with `&&`
-- Typescript
+- TypeScript
   - Using type inference (Avoid redundant type declarations)
 - Tailwind
   - Understood utility classes for styles like width and height
@@ -90,6 +90,20 @@ Takeaways:
   - Using variant modifiers (`hover:`) to add styles
 - TanStack Query (React Query)
   - Understood the usage of the query client and `useQuery()` as an industry standard for fetching from APIs in react
+
+### Gradient 🌈
+
+Created a gradient generator that displays different gradients based on set colours and direction.
+
+Takeaways:
+- React
+  - Learnt how to bind states to input values using `name` attribute
+- TypeScript
+  - Usage of `ChangeEvent` type annotation when dealing with form inputs
+- Tailwind
+  - Understood that Tailwind generates CSS at build, cannot update styles dynamically (Use inline styling to dynamically change styles with React and CSS)
+- CSS
+  - Learnt about gradient generation, usage of `linear-gradient()`
 
 ## Credits
 Thanks to WebDevCody for designing and sharing these projects.
