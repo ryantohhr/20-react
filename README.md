@@ -50,13 +50,24 @@ Takeaways:
 - Tailwind
   - Understood utility classes for styles like width and height
 
-### Dice 
+### Dice 🎲
 
 Created a dice site that allows the user to roll a die.
 
 Takeaways:
 
-Relatively simple project, familiarised with syntax of involved technologies
+Relatively simple project, familiarised with syntax of involved technologies.
+
+### Traffic Light 🚦
+
+Created a traffic light display that switched between red, green and orange at set intervals.
+
+Takeaways:
+- React
+  - Usage of `useEffect` to avoid side effects and state updates during rendering
+- General
+  - Using `const` and full caps for constant variables for readability and avoid accidental reassignment
+  - Using conditional reassignment within `className` for cleaner code
 
 ## Credits
 Thanks to WebDevCody for designing and sharing these projects.

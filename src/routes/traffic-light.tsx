@@ -30,8 +30,7 @@ function RouteComponent() {
         setActiveColour(RED)
       }, ORANGE_DELAY)
     }
-
-    console.log(activeColour)
+    
   }, [activeColour])
 
   return (
@@ -50,9 +49,9 @@ function TrafficLight({ active }: { active: Colour }) {
 
   return (
     <>
-      <div className={`bg-red-600 size-24 rounded-full ${isActive(RED) ? 'opacity-100' : 'opacity-30'}`}></div>
-      <div className={`bg-orange-600 size-24 rounded-full ${isActive(ORANGE) ? 'opacity-100' : 'opacity-30'}`}></div>
-      <div className={`bg-green-600 size-24 rounded-full ${isActive(GREEN) ? 'opacity-100' : 'opacity-30'}`}></div>
+      <div className={`bg-[${isActive(RED) ? '#c71306' : '#4f3a3c'}] size-24 rounded-full`}></div>
+      <div className={`bg-[${isActive(ORANGE) ? '#c78006' : '#4f4b3a'}] size-24 rounded-full`}></div>
+      <div className={`bg-[${isActive(GREEN) ? '#06c73d' : '#3a4f3b'}] size-24 rounded-full`}></div>
     </>
   )
 }
