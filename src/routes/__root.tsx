@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   HeadContent,
   Outlet,
@@ -70,6 +71,8 @@ function RootComponent() {
   )
 }
 
+const queryClient = new QueryClient()
+
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html>
@@ -77,7 +80,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
