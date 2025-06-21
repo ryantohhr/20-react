@@ -16,6 +16,13 @@ This is a log of my journey in becoming more proficient at using the React libra
   <img src="https://tanstack.com/assets/splash-dark-8nwlc0Nt.png" alt="TanStack Start" width="40" height="40"/>
 </p>
 
+- React
+- TypeScript
+- Tailwind CSS
+- ViteJS
+- TanStack Start
+- TanStack Query (React Query)
+
 
 ## Challenges
 
@@ -68,6 +75,21 @@ Takeaways:
 - General
   - Using `const` and full caps for constant variables for readability and avoid accidental reassignment
   - Using conditional reassignment within `className` for cleaner code
+
+### Quote Generator 💬
+
+Created a quote generator site that displays a quote when prompted.
+
+Takeaways:
+- TypeScript/ JavaScript
+  - Recap of async JS concepts
+  - Recap of promise chaining syntax
+  - Recap of usage of `async` and `await` syntax
+  - Usage of optional chaining (`quote?.sentence`) to avoid errors with undefined variables
+- Tailwind
+  - Using variant modifiers (`hover:`) to add styles
+- TanStack Query (React Query)
+  - Understood the usage of the query client and `useQuery()` as an industry standard for fetching from APIs in react
 
 ## Credits
 Thanks to WebDevCody for designing and sharing these projects.
