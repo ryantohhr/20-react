@@ -16,7 +16,7 @@ const emptyBoard: GridValue[][] = [
 function RouteComponent() {
   const [currentPlayer, setCurrentPlayer] = useState<Boolean>(true)
   const [board, setBoard] = useState<GridValue[][]>(emptyBoard)
-  const [winner, setWinner] = useState<'x' | 'o' | null>(null)
+  const [winner, setWinner] = useState<'x' | 'o' | 'tie' | null>(null)
 
   useEffect(() => {
     checkWinner()
@@ -27,57 +27,58 @@ function RouteComponent() {
       return
     }
 
-    let newBoard = board.map(row => [...row])
-    if (currentPlayer) {
-      newBoard[grid[0]][grid[1]] = 'x'
-    } else {
-      newBoard[grid[0]][grid[1]] = 'o'
-    }
-    setBoard(newBoard)
+    setBoard((prevBoard) => {
+      const newBoard: GridValue[][] = [...prevBoard].map(row => [...row])
+      if (currentPlayer) {
+        newBoard[grid[0]][grid[1]] = 'x'
+        return newBoard
+      } else {
+        newBoard[grid[0]][grid[1]] = 'o'
+        return newBoard
+      }
+    })
     setCurrentPlayer(!currentPlayer)
   }
 
   function checkWinner() {
+    for (let i =0; i < 3; i++) {
+      const row = board[i]
+      if (
+        row[0] === row[1] &&
+        row[1] === row[2] &&
+        row[0] !== null
+      ) {
+        setWinner(row[0])
+      }
+    }
+
+    for (let i = 0; i < 3; i++) {
+      const col = board.map(row => row[i])
+      if (
+        col[0] === col[1] &&
+        col[1] === col[2] &&
+        col[0] !== null
+      ) {
+        setWinner(col[0])
+      }
+    }
+
     if (
-      board[0][0] === board[0][1] &&
-      board[0][1] === board[0][2]
-    ) {
-      setWinner(board[0][0])
-    } else if (
-      board[1][0] === board[1][1] &&
-      board[1][1] === board[1][2]
-    ) {
-      setWinner(board[1][0])
-    } else if (
-      board[2][0] === board[2][1] &&
-      board[2][1] === board[2][2]
-    ) {
-      setWinner(board[2][0])
-    } else if (
       board[0][0] === board[1][1] &&
-      board[1][1] === board[2][2]
+      board[1][1] === board[2][2] &&
+      board[0][0] !== null
     ) {
       setWinner(board[0][0])
     } else if (
       board[0][2] === board[1][1] &&
-      board[1][1] === board [2][0]
+      board[1][1] === board [2][0] &&
+      board[0][2] !== null
     ) {
       setWinner(board[0][2])
-    } else if (
-      board[0][0] === board[1][0] &&
-      board[1][0] === board[2][0]
-    ) {
-      setWinner(board[0][0])
-    } else if (
-      board[0][1] === board[1][1] &&
-      board[1][1] === board[2][1]
-    ) {
-      setWinner(board[0][1])
-    } else if (
-      board[0][2] === board[1][2] &&
-      board[1][2] === board[2][2]
-    ) {
-      setWinner(board[0][2])
+    }
+
+    if (board.every(row => row.every(cell => cell !== null))) {
+      setWinner('tie')
     }
   }
 
@@ -94,12 +95,22 @@ function RouteComponent() {
           <div className='flex flex-col items-center justify-center gap-2'>
             <div className='flex gap-1 items-center justify-center text-2xl font-bold'>
               {winner === 'x' && (
-                <X />
+                <>
+                  <X />
+                  is the winner!
+                </>
               )}
               {winner === 'o' && (
-                <Circle />
+                <>
+                  <Circle />
+                  is the winner!
+                </>
               )}
-              is the winner!
+              {winner === 'tie' && (
+                <>
+                  It's a tie!
+                </>
+              )}
             </div>
             <button onClick={resetGame} className='text-sm px-4 py-2 text-black bg-white rounded-md'>
               Play Again
@@ -108,20 +119,21 @@ function RouteComponent() {
         )}
       </div>
       <div className='flex flex-col size-96 bg-gray-500 rounded-md gap-2 p-2'>
-        {[0, 1, 2].map(i => (
+        {board.map((row, rowIndex) => (
           <div className='flex w-full h-1/3 gap-2'>         
-            {[0, 1, 2].map(j => {
+            {row.map((cell, colIndex) => {
               return (
                 <button
+                  disabled={cell !== null}
                   onClick={()=> {
-                    placeCounter([i, j])
+                    placeCounter([rowIndex, colIndex])
                   }}
                   className='flex items-center justify-center bg-white rounded-md w-1/3 h-full'
                 >
-                  {board[i][j] === 'x' && (
+                  {board[rowIndex][colIndex] === 'x' && (
                     <X className='flex size-24 text-black' />
                   )}
-                  {board[i][j] === 'o' && (
+                  {board[rowIndex][colIndex] === 'o' && (
                     <Circle className='flex size-24 text-black' />
                   )}
                 </button>
