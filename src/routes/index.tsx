@@ -29,6 +29,10 @@ function RouteComponent() {
         {
           title: 'Gradient',
           path: '/gradient'
+        },
+        {
+          title: 'Tic Tac Toe',
+          path: '/tic-tac-toe'
         }
     ]
   return (
