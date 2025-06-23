@@ -105,5 +105,18 @@ Takeaways:
 - CSS
   - Learnt about gradient generation, usage of `linear-gradient()`
 
+### Tic Tac Toe ❌ ⭕
+
+Created a tic tac toe game on the browser.
+
+Takeaways:
+- React
+  - Usage of `(prev) => ...` to update state
+  - Usage of `array.map()` to render arrays
+- TypeScript
+  - Declaring array types
+- JavaScript
+  - Usage of `array.every()` to iterate through array
+
 ## Credits
 Thanks to WebDevCody for designing and sharing these projects.
