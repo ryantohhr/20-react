@@ -1,5 +1,11 @@
 # 20 React Challenges
 
+### To run this project:
+
+1. Clone repo
+2. Run `npm install`
+3. Run `npm run dev`
+
 This is a log of my journey in becoming more proficient at using the React library and other technologies by building 20 React challenges shared by WebDevCody.
 
 ## 🚀 Core Technologies
